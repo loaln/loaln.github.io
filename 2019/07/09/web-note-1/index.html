@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        Loaln&#39;s blog
+        《JavaScript DOM编程艺术》笔记｜Loaln&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="http://haojen.github.io/archives/2019/">
+    <link rel="canonical" href="http://haojen.github.io/2019/07/09/web-note-1/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -43,7 +43,7 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="" class="animated fadeIn">
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost="false" data-istags="false
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost="true" data-istags="false
 " data-ishome="false">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -132,247 +132,164 @@
 
 <!-- Main Content -->
 
+<!--only post-->
 
-<!-- Page Header -->
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 visible-xs-block visible-sm-block">
-    <div class="row">
-        <header class="intro-header">
-            <div class="container">
-                <div class="site-heading text-center">
-                    <div class="about-me">
-                        <!--移动端头部显示-->
-                        <img src="head.jpg">
-                        <h5><a href="/about/">Loaln</a></h5>
-                        <p>女大学生，前端学生一枚，希望能在此记录各种问题。</p>
+
+<img class="wechat-title-img" src="nullhttp://pu883r10r.bkt.clouddn.com/bg-black.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('http://pu883r10r.bkt.clouddn.com/bg-black.jpg?imageView2/1/w/1400/h/400/interlace/1/q/90')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>《JavaScript DOM编程艺术》笔记</h1>
+                    
+                    <span class="meta">
+                         作者 Loaln
+                        <span>
+                          日期 2019-07-09
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
+                        
+                        <a class="tag" href="/tags/#前端" title="前端">前端</a>
+                        
+                        <a class="tag" href="/tags/#笔记" title="笔记">笔记</a>
+                        
                     </div>
                 </div>
             </div>
-        </header>
+        </div>
     </div>
-</div>
-<!-- Main Content -->
-<div class="container custom-haojen-container">
-    <!-- Post Container -->
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 post-container">
-            <!-- Main Content -->
-
-
-
-<div class="post-preview " style="background-image: url('http://pu883r10r.bkt.clouddn.com/bg-black.jpg')">
-    <a href="/2019/07/09/web-note-1/">
-        <h2 class="post-title">
+    <div class="post-title-haojen">
+        <span>
             《JavaScript DOM编程艺术》笔记
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-07-09
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                第一次更新：2019-07-09最新次更新：2019-07-10
-前言
-大三期间，自己根据视频简单地学习了JavaScript，通过阅读这本书，对知识内容进行补充记录。
+        </span>
+    </div>
+</header>
 
-传送门：学习视频：【极客学院】Javascript入门教程自己练习记录：https://loaln.github.io/We..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview " style="background-image: url('http://pu883r10r.bkt.clouddn.com/bg-star.jpg')">
-    <a href="/2019/07/06/product-note-1/">
-        <h2 class="post-title">
-            《幕后产品》读后感
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-07-06
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                第一次更新：2019-07-07
-前言
-首先，自个从升入大三，就基本确定以后的职业方向是前端。那么为什么会接触到这本书呢？源于大三下学期与同学组队参加“微信小程序应用开发赛”，队伍是由我和舍友（同样走前端方向），还有一位大四的师兄组成的，他的职业方向是产品经理。虽然这个比赛结果一般，但也算是一份..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview " style="background-image: url('http://pu883r10r.bkt.clouddn.com/20170119100643_V3sN5.jpeg')">
-    <a href="/2019/03/07/myFirstBlog/">
-        <h2 class="post-title">
-            我的第一条博客
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-03-07
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                &nbsp;&nbsp;&nbsp;&nbsp;很简单，就是用来尝试如何写博客的。
-&nbsp;&nbsp;&nbsp;&nbsp;此条博客的内容，距离我搭建自己的博客已经过去整整四个月了，那时候用来几天的时间用来捣鼓，后来由于自己的专业课程上来及作业的增加，还有自己的懒惰就没有再继续。
-&nb..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview " style="background-image: url('')">
-    <a href="/2019/03/06/hello-world/">
-        <h2 class="post-title">
-            Hello World
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-03-06
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer i..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-
-<!-- 翻页 pager -->
-
-<ul class="pager">
-    
-    
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <p>第一次更新：2019-07-09<br>最新次更新：2019-07-10</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><hr>
+<p>大三期间，自己根据视频简单地学习了JavaScript，通过阅读这本书，对知识内容进行补充记录。</p>
+<blockquote>
+<p><strong>传送门：</strong><br>学习视频：<a href="https://www.bilibili.com/video/av9243452/" target="_blank" rel="noopener">【极客学院】Javascript入门教程</a><br>自己练习记录：<a href="https://loaln.github.io/WebFont-end_Practice/" target="_blank" rel="noopener">https://loaln.github.io/WebFont-end_Practice/</a></p>
+</blockquote>
+<h1 id="第一章-JavaScript简史"><a href="#第一章-JavaScript简史" class="headerlink" title="第一章 JavaScript简史"></a>第一章 JavaScript简史</h1><hr>
+<h1 id="第二章-JavaScript语法"><a href="#第二章-JavaScript语法" class="headerlink" title="第二章 JavaScript语法"></a>第二章 JavaScript语法</h1><hr>
+<h2 id="2-1准备工作"><a href="#2-1准备工作" class="headerlink" title="2.1准备工作"></a>2.1准备工作</h2><ul>
+<li><p>引用js最好的做法是把<code>&lt;script&gt;</code>标签放到HTML文档的最后，<code>&lt;/body&gt;</code>标签之前，这样能使浏览器更加快地加载页面（第五章有详解）。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">		&lt;title&gt;demo&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line">	&lt;body&gt;</span><br><span class="line">		hhhh</span><br><span class="line">		&lt;script src=&quot;demo.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>程序设计语言分为解释型和编译型两大类，JavaScript属于解释型。</p>
+</li>
+<li>JavaScript允许程序员直接对变量赋值而无需事先命名，但最好不要。</li>
+<li>驼峰式命名：删除中间的空白（下划线），后面的每个新单词改用大写字母开头，是函数名、方法名和对象属性名命名的首选格式。如：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var myMood = &quot;Happy&quot;;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
+<blockquote>
+<p><strong>文章作者：</strong><a href="https://loaln.github.io/" target="_blank" rel="noopener">Loaln</a><br><strong>文章链接：</strong><a href="https://loaln.github.io/2019/07/09/web-note-1/" target="_blank" rel="noopener">https://loaln.github.io/2019/07/09/web-note-1/</a><br><strong>版权声明：</strong>本文由Loaln原创,采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享（CC BY-NC-SA）4.0 国际许可协议</a><br>转载请保留原文链接及作者。</p>
+</blockquote>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2019/07/06/product-note-1/" data-toggle="tooltip" data-placement="top" title="《幕后产品》读后感">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
 
 
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第一章-JavaScript简史"><span class="toc-text">第一章 JavaScript简史</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第二章-JavaScript语法"><span class="toc-text">第二章 JavaScript语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1准备工作"><span class="toc-text">2.1准备工作</span></a></li></ol></li></ol>
+                </div>
+            </div>
         </div>
-        <!-- Sidebar Container -->
-        <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
 
-            <!-- About Me -->
-            <section class="visible-md visible-lg" style="padding: 0 18px">
-                <div class="short-about">
-                    <!--侧边栏头像-->
-                    
-                    <img src="head.jpg">
-                    
-                    <h5><a href="/about/">Loaln</a></h5>
-                    
-                    <p>女大学生，前端学生一枚，希望能在此记录各种问题。</p>
-                    
-                    <hr>
-                    <!-- SNS Link 社交 -->
-                    <ul class="list-inline">
-                        
-                        
-                        <li>
-                            <a target="_blank" href="https://twitter.com/Shelyn">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                        </span>
-                            </a>
-                        </li>
-                        
-                        
-                        <li>
-                            <a target="_blank" href="https://www.zhihu.com/people/colly-20">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa  fa-stack-1x fa-inverse">知</i>
-                                        </span>
-                            </a>
-                        </li>
-                        
+        <div class="row">
+            <!-- Sidebar Container -->
 
-                        
-                        <li>
-                            <a target="_blank" href="http://weibo.com/Collyna">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                                        </span>
-                            </a>
-                        </li>
-                        
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
 
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
                         
+                        <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
+                        
+                        <a class="tag" href="/tags/#前端" title="前端">前端</a>
+                        
+                        <a class="tag" href="/tags/#笔记" title="笔记">笔记</a>
+                        
+                    </div>
+                </section>
+                
 
+                <!-- Friends Blog -->
+                
+                <div style="margin-top: 20px;">
+                    <h5 class="text-center">FRIENDS</h5>
+                    <ul class="list-inline text-center">
                         
-                        <li>
-                            <a target="_blank" href="https://github.com/loaln">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                        </span>
-                            </a>
-                        </li>
+                        <li><a href="https://niccce.github.io/">小雪糕的秘密fa园</a></li>
                         
-
+                        <li><a href="https://fxtd-odyssey.github.io/">智商帝</a></li>
                         
                     </ul>
                 </div>
-            </section>
-
-            <!-- Featured Tags  标签 -->
-            
-            <section>
-                <div class="tags">
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                </div>
-            </section>
-            
-
-            
-            <hr>
-            <h5 style="text-align: center;">Friends</h5>
-            <ul class="list-inline" style="text-align: center;">
                 
-                <li><a href="https://niccce.github.io/" target="_blank">小雪糕的秘密fa园</a></li>
-                
-                <li><a href="https://fxtd-odyssey.github.io/" target="_blank">智商帝</a></li>
-                
-            </ul>
-            
-
+            </div>
         </div>
+
     </div>
-</div>
+</article>
+
+
+
+
+
+
 
 <!-- Footer -->
 <!-- Footer -->
