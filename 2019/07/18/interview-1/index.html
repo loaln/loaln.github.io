@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="LOALN在 Github 上的个人博客">
+    <meta name="keyword" content>
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="Loaln" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        前端面试知识集锦｜Loaln&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://haojen.github.io/2019/07/18/interview-1/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost="true" data-istags="false
+" data-ishome="false">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Loaln
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/Tags/">tags</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/Works/">WORKS</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img" src>
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>前端面试知识集锦</h1>
+                    
+                    <span class="meta">
+                         作者 Loaln
+                        <span>
+                          日期 2019-07-18
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#前端" title="前端">前端</a>
+                        
+                        <a class="tag" href="/tags/#面试" title="面试">面试</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            前端面试知识集锦
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h1><hr>
+<h2 id="1-前端工程化"><a href="#1-前端工程化" class="headerlink" title="1 前端工程化"></a>1 前端工程化</h2><ol>
+<li>代码规范：保证团队所有成员以同样的规范开发代码.</li>
+<li>分支管理：不同的开发人员开发不同的功能或组件，按照统一的流程合并到主干。</li>
+<li>模块管理：一方面，团队引用的模块应该是规范的；另一方面，必须保证这些模块可以正确地加入到最终编译好的包文件中。（以上两点可以总结为模块化或者组件化开发。）</li>
+<li>自动化测试：为了保证和并进主干的代码达到质量标准，必须有测试，而且测试应该是自动化的，可以回归的。</li>
+<li>构建：主干更新后，自动将代码编译为最终的目标格式，并且准备好各种静态资源。</li>
+<li>部署：将构建好的代码部署到生产环境。</li>
+</ol>
+<blockquote>
+<p>参考：<a href="https://www.jianshu.com/p/171996f5b12c" target="_blank" rel="noopener">https://www.jianshu.com/p/171996f5b12c</a><br>此处可以延长了解模块化和组件化。</p>
+</blockquote>
+<h2 id="2-Ajax原理"><a href="#2-Ajax原理" class="headerlink" title="2 Ajax原理"></a>2 Ajax原理</h2><h3 id="2-1-Ajax的工作原理"><a href="#2-1-Ajax的工作原理" class="headerlink" title="2.1 Ajax的工作原理"></a>2.1 Ajax的工作原理</h3><ol>
+<li>浏览器捕获用户的操作，并进行相应的处理，然后把用户的操作反馈到服务器。</li>
+<li>服务器接收浏览器端传来的用户操作，然后再把用户操作分发到其他浏览器端。</li>
+<li>浏览器接收由服务器端分发下来的用户动作，并进行相应的处理。</li>
+</ol>
+<h3 id="2-2-Ajax的编程步骤"><a href="#2-2-Ajax的编程步骤" class="headerlink" title="2.2 Ajax的编程步骤"></a>2.2 Ajax的编程步骤</h3><ol>
+<li>创建XMLHttpRequest对象；</li>
+<li>设置请求方式；</li>
+<li>调用回调函数；</li>
+<li>发送请求。</li>
+</ol>
+<blockquote>
+<p>Ajax部分转载链接：<a href="https://blog.csdn.net/weixin_37580235/article/details/81459282#%E4%B8%80%20Ajax%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%8E%9F%E7%90%86" target="_blank" rel="noopener">总结 - Ajax工作原理和实现步骤</a></p>
+</blockquote>
+<h2 id="3-Axios"><a href="#3-Axios" class="headerlink" title="3 Axios"></a>3 Axios</h2><p>axios 是一个基于Promise 用于浏览器和 nodejs 的 HTTP 客户端，它本身具有以下特征：</p>
+<ul>
+<li>从浏览器中创建 XMLHttpRequest</li>
+<li>从 node.js 发出 http 请求</li>
+<li>支持 Promise API</li>
+<li>拦截请求和响应</li>
+<li>转换请求和响应数据</li>
+<li>取消请求</li>
+<li>自动转换JSON数据</li>
+<li>客户端支持防止 CSRF/XSRF</li>
+</ul>
+<p>注：Vue 官方建议用 axios 代替 vue-resourse，所以在这里不做vue-resourse的探讨；</p>
+<blockquote>
+<p>axios中文文档：<a href="https://blog.csdn.net/qq_36538012/article/details/81942990" target="_blank" rel="noopener">https://blog.csdn.net/qq_36538012/article/details/81942990</a><br>axios-w3cschool-菜鸟教程：<a href="http://www.27900.com/axios" target="_blank" rel="noopener">http://www.27900.com/axios</a><br>原文链接：<a href="https://blog.csdn.net/weixin_44763569/article/details/89926753" target="_blank" rel="noopener">axios是什么</a>，<a href="https://www.jianshu.com/p/8bc48f8fde75" target="_blank" rel="noopener">ajax和axios、fetch的区别</a></p>
+</blockquote>
+<h2 id="4-MVC和MVVM"><a href="#4-MVC和MVVM" class="headerlink" title="4 MVC和MVVM"></a>4 MVC和MVVM</h2><h2 id="5-Promise"><a href="#5-Promise" class="headerlink" title="5 Promise"></a>5 Promise</h2><p>Promise对象用于异步操作，它表示一个尚未完成且预计在未来完成的异步操作。<br>Promise的真正强大之处在于它的多重链式调用，可以避免层层嵌套回调。</p>
+<blockquote>
+<p>学习链接：<a href="https://segmentfault.com/a/1190000007032448" target="_blank" rel="noopener">初探Promise</a></p>
+</blockquote>
+<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><hr>
+<h2 id="1-js基本数据类型"><a href="#1-js基本数据类型" class="headerlink" title="1 js基本数据类型"></a>1 js基本数据类型</h2><p>js中有六种数据类型，包括五种基本数据类型（Number,String,Boolean,Undefined,Null）,和一种复杂数据类型（Object）。</p>
+<blockquote>
+<p>参考：<a href="https://www.cnblogs.com/xuniannian/p/7452086.html" target="_blank" rel="noopener">https://www.cnblogs.com/xuniannian/p/7452086.html</a></p>
+</blockquote>
+<h1 id="HTML、CSS"><a href="#HTML、CSS" class="headerlink" title="HTML、CSS"></a>HTML、CSS</h1><hr>
+<h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1><hr>
+<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><hr>
+<h1 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h1><hr>
+<blockquote>
+<p><strong>文章作者：</strong><a href="https://loaln.github.io/" target="_blank" rel="noopener">Loaln</a><br><strong>文章链接：</strong><a href="https://loaln.github.io/2019/07/18/interview-1/" target="_blank" rel="noopener">https://loaln.github.io/2019/07/18/interview-1/</a><br><strong>版权声明：</strong>本文由Loaln原创,采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享（CC BY-NC-SA）4.0 国际许可协议</a><br>转载请保留原文链接及作者。</p>
+</blockquote>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2019/07/09/web-note-1/" data-toggle="tooltip" data-placement="top" title="《JavaScript DOM编程艺术》笔记">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前端"><span class="toc-text">前端</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-前端工程化"><span class="toc-text">1 前端工程化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Ajax原理"><span class="toc-text">2 Ajax原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Ajax的工作原理"><span class="toc-text">2.1 Ajax的工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Ajax的编程步骤"><span class="toc-text">2.2 Ajax的编程步骤</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Axios"><span class="toc-text">3 Axios</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-MVC和MVVM"><span class="toc-text">4 MVC和MVVM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Promise"><span class="toc-text">5 Promise</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript"><span class="toc-text">JavaScript</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-js基本数据类型"><span class="toc-text">1 js基本数据类型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HTML、CSS"><span class="toc-text">HTML、CSS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#计算机网络"><span class="toc-text">计算机网络</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#算法"><span class="toc-text">算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#框架"><span class="toc-text">框架</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#前端" title="前端">前端</a>
+                        
+                        <a class="tag" href="/tags/#面试" title="面试">面试</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <div style="margin-top: 20px;">
+                    <h5 class="text-center">FRIENDS</h5>
+                    <ul class="list-inline text-center">
+                        
+                        <li><a href="https://niccce.github.io/">小雪糕的秘密fa园</a></li>
+                        
+                        <li><a href="https://fxtd-odyssey.github.io/">智商帝</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/Shelyn">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/colly-20">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/Collyna">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://github.com/loaln">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Loaln 2019
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://haojen.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="head.jpg">
+</body>
+
+</html>

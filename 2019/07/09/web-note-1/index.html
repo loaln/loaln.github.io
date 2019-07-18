@@ -186,7 +186,7 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <p>初次更新：2019-07-09<br>最新更新：2019-07-12</p>
+                <p>初次更新：2019-07-09<br>最新更新：2019-07-18</p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><hr>
 <p>大三期间，自己根据视频简单地学习了JavaScript，通过阅读这本书，对知识内容进行补充记录。</p>
 <blockquote>
@@ -269,6 +269,126 @@
 </li>
 </ul>
 <h1 id="第六章-案例研究：图片库改进版"><a href="#第六章-案例研究：图片库改进版" class="headerlink" title="第六章 案例研究：图片库改进版"></a>第六章 案例研究：图片库改进版</h1><hr>
+<h2 id="6-3-2-共享onload事件-addLoadEvent"><a href="#6-3-2-共享onload事件-addLoadEvent" class="headerlink" title="6.3.2 共享onload事件(addLoadEvent)"></a>6.3.2 共享onload事件(addLoadEvent)</h2><ul>
+<li><strong>addLoadEvent</strong>事件可以帮助解决文档加载完调用多个函数的问题。它不是DOM自带事件，需人为添加。下面进行简单的介绍：<br>addLoadEvent函数将要完成的操作：<ul>
+<li>把现有的window.onload事件处理函数的值存入到oldonload中；</li>
+<li>如果在这个处理函数上还没有绑定任何函数，就将该函数添加给它；</li>
+<li>如果在这个处理函数上已经绑定了一些函数，就把该函数追加到现有指定的末尾。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function addLoadEvent(func)&#123;</span><br><span class="line">	var oldonload=window.onload;//将现有的事件处理函数的值存入变量中</span><br><span class="line">	if(typeof window.onload!=&apos;function&apos;)&#123;</span><br><span class="line">		window.onload=func;//如果这个事件处理函数没有绑定任何函数，就把新函数添加给它</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		window.onload=function()&#123;</span><br><span class="line">			onload();</span><br><span class="line">			func();//如果已经绑定了函数，就把新函数追加到现有指令的末尾</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;最后，只需要在js脚本最后添加如下，便能在脚本完成后调用多个函数。<br>&nbsp;&nbsp;&nbsp;&nbsp;注意，一定在要脚本最后加入，因为要等待其他函数加载完成后才能调用到。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">addLoadEvent(firstFunction);</span><br><span class="line">addLoadEvent(secondFunction);</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p><strong>addLoadEvent学习参考链接：</strong><br><a href="https://www.cnblogs.com/yangtoude/p/4753306.html" target="_blank" rel="noopener">https://www.cnblogs.com/yangtoude/p/4753306.html</a><br><a href="https://www.imooc.com/wenda/detail/336004" target="_blank" rel="noopener">https://www.imooc.com/wenda/detail/336004</a></p>
+</blockquote>
+<h1 id="第七章-动态创建标记"><a href="#第七章-动态创建标记" class="headerlink" title="第七章 动态创建标记"></a>第七章 动态创建标记</h1><hr>
+<h2 id="7-2-DOM方法"><a href="#7-2-DOM方法" class="headerlink" title="7.2 DOM方法"></a>7.2 DOM方法</h2><ul>
+<li><strong>createElement()方法：</strong>创建元素节点。</li>
+<li><strong>createTextNode()方法：</strong>创建文本节点。</li>
+<li><strong>appendChild()方法：</strong>将创建的节点插入某一节点中。语法为：<code>parent.appendChild(child)</code>。</li>
+<li><strong>insertBefore()方法：</strong>在已有元素前插入一个新元素。<ul>
+<li>新元素：你插入的元素（newElement）；</li>
+<li>目标元素：你想把这个新元素插入到哪个元素（targetElement）之前；</li>
+<li>父元素：目标元素的父元素（parentElement）。<br>语法为：<code>parentElement.insertBefore(newElement,targetElement)</code>。</li>
+</ul>
+</li>
+<li>DOM没有直接提供在已有元素后插入一个新元素的方法。编写insertAfter函数：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function insertAfter(newElement,targetElement) &#123;</span><br><span class="line">	var parent = targetElement.parentNode;</span><br><span class="line">	if (parent.lastChild == targetElement) &#123;</span><br><span class="line">		parent.appendChild(newElement);</span><br><span class="line">	&#125; else &#123;</span><br><span class="line">		parent.insertBefore(newElement,targetElement.nextSibling);</span><br><span class="line">		//targetElement.nextSibling为目标元素的下一个兄弟元素</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="7-4-Ajax-自行查找补充"><a href="#7-4-Ajax-自行查找补充" class="headerlink" title="7.4 Ajax(自行查找补充)"></a>7.4 Ajax(自行查找补充)</h2><blockquote>
+<p><strong>Ajax部分转载链接：</strong><a href="https://blog.csdn.net/weixin_37580235/article/details/81459282#%E4%B8%80%20Ajax%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%8E%9F%E7%90%86" target="_blank" rel="noopener">总结 - Ajax工作原理和实现步骤</a></p>
+</blockquote>
+<h3 id="1-Ajax简介"><a href="#1-Ajax简介" class="headerlink" title="(1) Ajax简介"></a>(1) Ajax简介</h3><ul>
+<li>Ajax与服务器交换数据并更新部分网页的艺术，在不重新加载整个页面的情况下。</li>
+<li>Ajax的主要优势就是对页面的请求以异步方式发送到服务器，从而进行页面的局部刷新，不影响用户的浏览体验。</li>
+</ul>
+<h3 id="2-Ajax所包含的技术"><a href="#2-Ajax所包含的技术" class="headerlink" title="(2) Ajax所包含的技术"></a>(2) Ajax所包含的技术</h3><p>大家都知道ajax并非一种新的技术，而是几种原有技术的结合体。它由下列技术组合而成。</p>
+<ol>
+<li>使用CSS和XHTML来表示。</li>
+<li>使用DOM模型来交互和动态显示。</li>
+<li>使用XMLHttpRequest来和服务器进行异步通信。</li>
+<li>使用javascript来绑定和调用。</li>
+</ol>
+<p>AJAX 的核心是 XMLHttpRequest 对象。<br>不同的浏览器创建 XMLHttpRequest 对象的方法是有差异的。<br><strong>IE 浏览器使用 ActiveXObject，而其他的浏览器使用名为 XMLHttpRequest 的 JavaScript 内建对象。</strong></p>
+<h3 id="3-Ajax的工作原理"><a href="#3-Ajax的工作原理" class="headerlink" title="(3) Ajax的工作原理"></a>(3) Ajax的工作原理</h3><ol>
+<li>浏览器捕获用户的操作，并进行相应的处理，然后把用户的操作反馈到服务器。</li>
+<li>服务器接收浏览器端传来的用户操作，然后再把用户操作分发到其他浏览器端。</li>
+<li>浏览器接收由服务器端分发下来的用户动作，并进行相应的处理。</li>
+</ol>
+<h3 id="4-XMLHttpRequest对象的三个常用属性"><a href="#4-XMLHttpRequest对象的三个常用属性" class="headerlink" title="(4)XMLHttpRequest对象的三个常用属性"></a>(4)XMLHttpRequest对象的三个常用属性</h3><ol>
+<li><strong>onreadystatechange属性：</strong>该属性存有处理服务器响应的函数。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">xmlHttp.onreadystatechange=function()&#123;</span><br><span class="line">	//填写我们需要执行的函数代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><strong>readyState属性：</strong>该属性存有服务器响应的状态信息。每当readyState改变时，onreadystatchange函数就会被执行。<br>readyState属性可能的值：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>状态</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>未初始化。请求未初始化（在调用 open() 之前）</td>
+</tr>
+<tr>
+<td>1</td>
+<td>正在加载。请求已提出（调用 send() 之前）</td>
+</tr>
+<tr>
+<td>2</td>
+<td>已加载。请求已发送（这里通常可以从响应得到内容头部）</td>
+</tr>
+<tr>
+<td>3</td>
+<td>交互中。请求处理中（响应中通常有部分数据可用，但是服务器还没有完成响应）</td>
+</tr>
+<tr>
+<td>4</td>
+<td>完成。请求已完成（可以访问服务器响应并使用它）</td>
+</tr>
+</tbody>
+</table>
+<p>我们要向这个 onreadystatechange 函数添加一条 If 语句，来测试我们的响应是否已完成(意味着可获得数据)：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">xmlHttp.onreadystatechange = function() &#123;</span><br><span class="line">    if (xmlHttp.readyState == 4) &#123;</span><br><span class="line">        //从服务器的response获得数据</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><strong>responseText属性：</strong>该属性用来取回由服务器返回的数据。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">xmlHttp.onreadystatechange = function() &#123;</span><br><span class="line">    if (xmlHttp.readyState == 4) &#123;</span><br><span class="line">        document.myForm.time.value = xmlHttp.responseText;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>其他属性。</li>
+</ol>
+<h3 id="5-xmlhttprequst的方法"><a href="#5-xmlhttprequst的方法" class="headerlink" title="(5)xmlhttprequst的方法"></a>(5)xmlhttprequst的方法</h3><ol>
+<li><strong>open()方法：</strong>open() 有三个参数。第一个参数定义发送请求所使用的方法，第二个参数规定服务器端脚本的URL，第三个参数规定应当对请求进行异步地处理。<br><code>xmlHttp.open(&quot;GET&quot;,&quot;test.php&quot;,true);</code></li>
+<li><strong>send()方法：</strong>send() 方法将请求送往服务器。如果我们假设 HTML 文件和 PHP 文件位于相同的目录，那么代码是这样的：<br><code>xmlHttp.send(null);</code></li>
+<li>其他方法。</li>
+</ol>
+<h3 id="6-Ajax编程步骤"><a href="#6-Ajax编程步骤" class="headerlink" title="(6)Ajax编程步骤"></a>(6)Ajax编程步骤</h3><ol>
+<li><strong>创建XMLHttpRequest对象。</strong><br>创建XMLHttp对象语法：<code>var xmlHttp=new XMLHttpRequest();</code><br>如果是IE5或者IE6浏览器，则使用<strong>ActiveX</strong>对象，创建方法：<br><code>var xmlHttp=new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);</code><br>一般我们手写AJAX的时候，首先要判断该浏览器是否支持XMLHttpRequest对象，如果支持则创建该对象，如果不支持则创建ActiveX对象。JS代码如下：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//第一步：创建XMLHttpRequest对象</span><br><span class="line"></span><br><span class="line">var xmlHttp;</span><br><span class="line">if (window.XMLHttpRequest) &#123;            //非IE</span><br><span class="line">    xmlHttp = new XMLHttpRequest();</span><br><span class="line">&#125; else if (window.ActiveXObject) &#123;       //IE</span><br><span class="line">    xmlHttp = new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><strong>设置请求方式。</strong><br>在web开发中，请求有get和post两种，区别如下。这是W3C的解释。<br>注意：GET主要用于查询，PUT、POST、DELETE用于修改。<br><img src="http://pu883r10r.bkt.clouddn.com/get&amp;post.png" alt="GET &amp; POST" title="GET &amp; POST"></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//第二步：设置和服务器端交互的相应参数，向路径http://localhost:8080/JsLearning3/getAjax准备发送数据</span><br><span class="line">       </span><br><span class="line">var url = &quot;http://localhost:8080/JsLearning3/getAjax&quot;;</span><br><span class="line">xmlHttp.open(&quot;POST&quot;, url, true);</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><strong>调用回调函数。</strong><br>回调函数就是上述属性onreadystatechange属性，并用此创建一个匿名方法。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//第三步：注册回调函数</span><br><span class="line"> </span><br><span class="line">xmlHttp.onreadystatechange = function() &#123;</span><br><span class="line">    if (xmlHttp.readyState == 4) &#123;</span><br><span class="line">        if (xmlHttp.status == 200) &#123;</span><br><span class="line">            var obj = document.getElementById(id);</span><br><span class="line">            obj.innerHTML = xmlHttp.responseText;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            alert(&quot;AJAX服务器返回错误！&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>xmlHttp.status是服务器返回的结果，其中200代表正确。404代表未找到页面，所以这里我们判断只有当xmlHttp.status等于200的时候才可以继续执行。<br>AJAX状态码说明:<br>&nbsp;&nbsp;&nbsp;&nbsp;1–：请求收到，继续处理<br>&nbsp;&nbsp;&nbsp;&nbsp;2–：操作成功收到，分析、接受<br>&nbsp;&nbsp;&nbsp;&nbsp;3–：完成此请求必须进一步处理<br>&nbsp;&nbsp;&nbsp;&nbsp;4–：请求包含一个错误语法或不能完成<br>&nbsp;&nbsp;&nbsp;&nbsp;5–：服务器执行一个完全有效请求失败</p>
+<ol start="4">
+<li><strong>发送请求。</strong><br>如果需要像 HTML 表单那样 POST 数据，请使用 setRequestHeader() 来添加 HTTP 头。然后在 send() 方法中规定您希望发送的数据。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//第四步：设置发送请求的内容和发送报送。然后发送请求</span><br><span class="line"> </span><br><span class="line">var params = &quot;userName=&quot; + document.getElementsByName(&quot;userName&quot;)[0].value + &quot;&amp;userPass=&quot; + document.getElementsByName(&quot;userPass&quot;)[0].value + &quot;&amp;time=&quot; + Math.random();         // 增加time随机参数，防止读取缓存 				</span><br><span class="line">xmlHttp.setRequestHeader(&quot;Content-type&quot;, &quot;application/x-www-form-urlencoded;charset=UTF-8&quot;);                     // 向请求添加 HTTP 头，POST如果有数据一定加加！！！！</span><br><span class="line">xmlHttp.send(params);</span><br></pre></td></tr></table></figure>
+<h1 id="第八章-充实文档的内容"><a href="#第八章-充实文档的内容" class="headerlink" title="第八章 充实文档的内容"></a>第八章 充实文档的内容</h1><hr>
+<h1 id="第九章-CSS-DOM"><a href="#第九章-CSS-DOM" class="headerlink" title="第九章 CSS-DOM"></a>第九章 CSS-DOM</h1><hr>
+<h1 id="第十章-用JavaScript实现动画效果"><a href="#第十章-用JavaScript实现动画效果" class="headerlink" title="第十章 用JavaScript实现动画效果"></a>第十章 用JavaScript实现动画效果</h1><hr>
+<h1 id="第十一章-HTML5"><a href="#第十一章-HTML5" class="headerlink" title="第十一章 HTML5"></a>第十一章 HTML5</h1><hr>
+<h1 id="第十二章-综合实例"><a href="#第十二章-综合实例" class="headerlink" title="第十二章 综合实例"></a>第十二章 综合实例</h1><hr>
 <blockquote>
 <p><strong>文章作者：</strong><a href="https://loaln.github.io/" target="_blank" rel="noopener">Loaln</a><br><strong>文章链接：</strong><a href="https://loaln.github.io/2019/07/09/web-note-1/" target="_blank" rel="noopener">https://loaln.github.io/2019/07/09/web-note-1/</a><br><strong>版权声明：</strong>本文由Loaln原创,采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享（CC BY-NC-SA）4.0 国际许可协议</a><br>转载请保留原文链接及作者。</p>
 </blockquote>
@@ -277,6 +397,10 @@
                 
 
                 <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2019/07/18/interview-1/" data-toggle="tooltip" data-placement="top" title="前端面试知识集锦">&larr; Previous Post</a>
+                    </li>
                     
                     
                     <li class="next">
@@ -299,7 +423,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第一章-JavaScript简史"><span class="toc-text">第一章 JavaScript简史</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第二章-JavaScript语法"><span class="toc-text">第二章 JavaScript语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-准备工作"><span class="toc-text">2.1 准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-算术操作符"><span class="toc-text">2.3 算术操作符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-条件语句"><span class="toc-text">2.4 条件语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-7-对象"><span class="toc-text">2.7 对象</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第三章-DOM"><span class="toc-text">第三章 DOM</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-节点"><span class="toc-text">3.4 节点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第四章-案例研究：JavaScript图片库"><span class="toc-text">第四章 案例研究：JavaScript图片库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-应用这个JavaScript函数"><span class="toc-text">4.3 应用这个JavaScript函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-对这个函数进行扩展"><span class="toc-text">4.4 对这个函数进行扩展</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第五章-最佳实践"><span class="toc-text">第五章 最佳实践</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-平稳退化"><span class="toc-text">5.2 平稳退化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-5-向后兼容"><span class="toc-text">5.5 向后兼容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-6-性能考虑"><span class="toc-text">5.6 性能考虑</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第六章-案例研究：图片库改进版"><span class="toc-text">第六章 案例研究：图片库改进版</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第一章-JavaScript简史"><span class="toc-text">第一章 JavaScript简史</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第二章-JavaScript语法"><span class="toc-text">第二章 JavaScript语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-准备工作"><span class="toc-text">2.1 准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-算术操作符"><span class="toc-text">2.3 算术操作符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-条件语句"><span class="toc-text">2.4 条件语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-7-对象"><span class="toc-text">2.7 对象</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第三章-DOM"><span class="toc-text">第三章 DOM</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-节点"><span class="toc-text">3.4 节点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第四章-案例研究：JavaScript图片库"><span class="toc-text">第四章 案例研究：JavaScript图片库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-应用这个JavaScript函数"><span class="toc-text">4.3 应用这个JavaScript函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-对这个函数进行扩展"><span class="toc-text">4.4 对这个函数进行扩展</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第五章-最佳实践"><span class="toc-text">第五章 最佳实践</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-平稳退化"><span class="toc-text">5.2 平稳退化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-5-向后兼容"><span class="toc-text">5.5 向后兼容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-6-性能考虑"><span class="toc-text">5.6 性能考虑</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第六章-案例研究：图片库改进版"><span class="toc-text">第六章 案例研究：图片库改进版</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-2-共享onload事件-addLoadEvent"><span class="toc-text">6.3.2 共享onload事件(addLoadEvent)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第七章-动态创建标记"><span class="toc-text">第七章 动态创建标记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-DOM方法"><span class="toc-text">7.2 DOM方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-4-Ajax-自行查找补充"><span class="toc-text">7.4 Ajax(自行查找补充)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Ajax简介"><span class="toc-text">(1) Ajax简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Ajax所包含的技术"><span class="toc-text">(2) Ajax所包含的技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Ajax的工作原理"><span class="toc-text">(3) Ajax的工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-XMLHttpRequest对象的三个常用属性"><span class="toc-text">(4)XMLHttpRequest对象的三个常用属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-xmlhttprequst的方法"><span class="toc-text">(5)xmlhttprequst的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Ajax编程步骤"><span class="toc-text">(6)Ajax编程步骤</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第八章-充实文档的内容"><span class="toc-text">第八章 充实文档的内容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第九章-CSS-DOM"><span class="toc-text">第九章 CSS-DOM</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第十章-用JavaScript实现动画效果"><span class="toc-text">第十章 用JavaScript实现动画效果</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第十一章-HTML5"><span class="toc-text">第十一章 HTML5</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第十二章-综合实例"><span class="toc-text">第十二章 综合实例</span></a></li></ol>
                 </div>
             </div>
         </div>
