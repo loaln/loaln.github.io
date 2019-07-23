@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="LOALN在 Github 上的个人博客">
+    <meta name="keyword" content>
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="Loaln" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        关于牛客网“JS能力测评”之数组部分答案整理｜Loaln&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://haojen.github.io/2019/07/23/web-note-2-array/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost="true" data-istags="false
+" data-ishome="false">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Loaln
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/Tags/">tags</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/Works/">WORKS</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img" src>
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>关于牛客网“JS能力测评”之数组部分答案整理</h1>
+                    
+                    <span class="meta">
+                         作者 Loaln
+                        <span>
+                          日期 2019-07-23
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#前端" title="前端">前端</a>
+                        
+                        <a class="tag" href="/tags/#数组" title="数组">数组</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            关于牛客网“JS能力测评”之数组部分答案整理
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><hr>
+<p>通过案例巩固数组知识。在牛客网在线编程专题之“JS能力测评”的基础上，会陆续增加关于数组的题目。</p>
+<blockquote>
+<p><strong>链接：</strong><a href="https://www.nowcoder.com/ta/js-assessment" target="_blank" rel="noopener">https://www.nowcoder.com/ta/js-assessment</a><br><strong>来源：</strong>牛客网（牛客网 &gt; 首页 &gt; 在线编程 &gt; JS能力测评经典题）</p>
+</blockquote>
+<h1 id="1、查找数组元素位置"><a href="#1、查找数组元素位置" class="headerlink" title="1、查找数组元素位置"></a>1、查找数组元素位置</h1><hr>
+<ul>
+<li><strong>题目描述：</strong><br>找出元素 item 在给定数组 arr 中的位置。</li>
+<li><strong>输出描述：</strong><br>如果数组中存在 item，则返回元素在数组中的位置，否则返回 -1。</li>
+<li><strong>示例：</strong><br>输入：[ 1, 2, 3, 4 ], 3<br>输出：2</li>
+</ul>
+<h2 id="我的代码："><a href="#我的代码：" class="headerlink" title="我的代码："></a>我的代码：</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function indexOf(arr, item) &#123;</span><br><span class="line">    for(var i=0;i&lt;arr.length;i++)&#123;</span><br><span class="line">        if(arr[i]===item)&#123;</span><br><span class="line">            return i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return -1;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h2><p><strong><em>第一种：使用indexOf方法解决。</em></strong><br><strong>indexOf()方法：</strong></p>
+<ul>
+<li>可返回数组中某个指定的元素位置。</li>
+<li>该方法将从头到尾地检索数组，看它是否含有对应的元素。开始检索的位置在数组 start 处或数组的开头（没有指定 start 参数时）。如果找到一个 item，则返回 item 的第一次出现的位置。开始位置的索引为 0。</li>
+<li>如果在数组中没找到指定元素则返回 -1。</li>
+</ul>
+<p><strong>lastIndexOf() 方法：</strong></p>
+<ul>
+<li>与indexOf()方法相反，该方法可返回一个指定的元素在数组中最后出现的位置，从该字符串的后面向前查找。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function indexOf(arr,item)&#123;</span><br><span class="line">    return arr.indexOf(item);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong><em>第二种：如果浏览器不支持indexOf怎么办呢？</em></strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function indexOf(arr, item) &#123;</span><br><span class="line">    if (Array.prototype.indexOf)&#123;   //判断当前浏览器是否支持</span><br><span class="line">        return arr.indexOf(item);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        for (var i = 0; i &lt; arr.length; i++)&#123;</span><br><span class="line">            if (arr[i] === item)&#123;</span><br><span class="line">                return i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;     </span><br><span class="line">    return -1;     //总是把return -1暴漏在最外层</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong><em>第三种：支持数组arr中的数据类型为对象, 数组, 等。</em></strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//eg: var arr = [&#123;age: 1&#125;, &apos;1&apos;, 2, true, [1,2]], 依然可以测试。</span><br><span class="line">function indexOf(arr, item) &#123;</span><br><span class="line">    if (!arr || !arr.length) &#123;</span><br><span class="line">        return -1;</span><br><span class="line">    &#125;</span><br><span class="line">    for (var i = 0, len = arr.length; i &lt; len; i++) &#123;</span><br><span class="line">        // 支持 arr[i] 为对象，数组等</span><br><span class="line">        if (JSON.stringify(arr[i]) === JSON.stringify(item)) &#123;</span><br><span class="line">            return i</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="2、数组求和"><a href="#2、数组求和" class="headerlink" title="2、数组求和"></a>2、数组求和</h1><hr>
+<h1 id="3、移除数组中的元素"><a href="#3、移除数组中的元素" class="headerlink" title="3、移除数组中的元素"></a>3、移除数组中的元素</h1><hr>
+<h1 id="4、移除数组中的元素"><a href="#4、移除数组中的元素" class="headerlink" title="4、移除数组中的元素"></a>4、移除数组中的元素</h1><hr>
+<h1 id="5、添加元素"><a href="#5、添加元素" class="headerlink" title="5、添加元素"></a>5、添加元素</h1><hr>
+<h1 id="6、删除数组最后一个元素"><a href="#6、删除数组最后一个元素" class="headerlink" title="6、删除数组最后一个元素"></a>6、删除数组最后一个元素</h1><hr>
+<h1 id="7、添加元素"><a href="#7、添加元素" class="headerlink" title="7、添加元素"></a>7、添加元素</h1><hr>
+<h1 id="8、删除数组第一个元素"><a href="#8、删除数组第一个元素" class="headerlink" title="8、删除数组第一个元素"></a>8、删除数组第一个元素</h1><hr>
+<h1 id="9、数组合并"><a href="#9、数组合并" class="headerlink" title="9、数组合并"></a>9、数组合并</h1><hr>
+<h1 id="10、添加元素"><a href="#10、添加元素" class="headerlink" title="10、添加元素"></a>10、添加元素</h1><hr>
+<h1 id="11、计数"><a href="#11、计数" class="headerlink" title="11、计数"></a>11、计数</h1><hr>
+<h1 id="12、查找重复元素"><a href="#12、查找重复元素" class="headerlink" title="12、查找重复元素"></a>12、查找重复元素</h1><hr>
+<h1 id="13、求二次方"><a href="#13、求二次方" class="headerlink" title="13、求二次方"></a>13、求二次方</h1><hr>
+<h1 id="14、查找元素位置"><a href="#14、查找元素位置" class="headerlink" title="14、查找元素位置"></a>14、查找元素位置</h1><hr>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2019/07/18/interview-1/" data-toggle="tooltip" data-placement="top" title="前端面试知识集锦">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1、查找数组元素位置"><span class="toc-text">1、查找数组元素位置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#我的代码："><span class="toc-text">我的代码：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案："><span class="toc-text">解决方案：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2、数组求和"><span class="toc-text">2、数组求和</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3、移除数组中的元素"><span class="toc-text">3、移除数组中的元素</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4、移除数组中的元素"><span class="toc-text">4、移除数组中的元素</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5、添加元素"><span class="toc-text">5、添加元素</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6、删除数组最后一个元素"><span class="toc-text">6、删除数组最后一个元素</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7、添加元素"><span class="toc-text">7、添加元素</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8、删除数组第一个元素"><span class="toc-text">8、删除数组第一个元素</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9、数组合并"><span class="toc-text">9、数组合并</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#10、添加元素"><span class="toc-text">10、添加元素</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#11、计数"><span class="toc-text">11、计数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#12、查找重复元素"><span class="toc-text">12、查找重复元素</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#13、求二次方"><span class="toc-text">13、求二次方</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#14、查找元素位置"><span class="toc-text">14、查找元素位置</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#前端" title="前端">前端</a>
+                        
+                        <a class="tag" href="/tags/#数组" title="数组">数组</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <div style="margin-top: 20px;">
+                    <h5 class="text-center">FRIENDS</h5>
+                    <ul class="list-inline text-center">
+                        
+                        <li><a href="https://niccce.github.io/">小雪糕的秘密fa园</a></li>
+                        
+                        <li><a href="https://fxtd-odyssey.github.io/">智商帝</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/Shelyn">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/colly-20">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/Collyna">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://github.com/loaln">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Loaln 2019
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://haojen.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="head.jpg">
+</body>
+
+</html>

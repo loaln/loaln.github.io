@@ -162,9 +162,9 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
-                        
                         <a class="tag" href="/tags/#前端" title="前端">前端</a>
+                        
+                        <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
                         
                         <a class="tag" href="/tags/#笔记" title="笔记">笔记</a>
                         
@@ -186,7 +186,7 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <p>初次更新：2019-07-09<br>最新更新：2019-07-18</p>
+                <p>初次更新：2019-07-09<br>最新更新：2019-07-22</p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><hr>
 <p>大三期间，自己根据视频简单地学习了JavaScript，通过阅读这本书，对知识内容进行补充记录。</p>
 <blockquote>
@@ -220,6 +220,9 @@
 <h2 id="2-7-对象"><a href="#2-7-对象" class="headerlink" title="2.7 对象"></a>2.7 对象</h2><ul>
 <li>对象里的数据可以通过两种方式访问——属性（property）和方法（method）。<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var lennon = Object();</span><br><span class="line">lennon.name = lennon;</span><br><span class="line">lennon.age = 18;</span><br><span class="line">lennon.meoth();</span><br></pre></td></tr></table></figure>
 </li>
+</ul>
+<h2 id="for-in循环-8-4-2创建标记中提及"><a href="#for-in循环-8-4-2创建标记中提及" class="headerlink" title="for/in循环(8.4.2创建标记中提及)"></a>for/in循环(8.4.2创建标记中提及)</h2><ul>
+<li>遍历关联数据时可以采用for/in循环该方式，这是由于数组的下标不再是数字，而是人为的命名。其语法如下：<br><code>for (variable in arry)</code><br>在进入第一次循环是，变量variable将被赋值为数组array的第一个元素的下标值；在进入第二次循环时，变量variable将被赋值为数组array的第二个元素的下标值；依此类推，直到遍历完数组array里面的所有元素为止。</li>
 </ul>
 <h1 id="第三章-DOM"><a href="#第三章-DOM" class="headerlink" title="第三章 DOM"></a>第三章 DOM</h1><hr>
 <h2 id="3-4-节点"><a href="#3-4-节点" class="headerlink" title="3.4 节点"></a>3.4 节点</h2><ul>
@@ -385,10 +388,69 @@
 </ol>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//第四步：设置发送请求的内容和发送报送。然后发送请求</span><br><span class="line"> </span><br><span class="line">var params = &quot;userName=&quot; + document.getElementsByName(&quot;userName&quot;)[0].value + &quot;&amp;userPass=&quot; + document.getElementsByName(&quot;userPass&quot;)[0].value + &quot;&amp;time=&quot; + Math.random();         // 增加time随机参数，防止读取缓存 				</span><br><span class="line">xmlHttp.setRequestHeader(&quot;Content-type&quot;, &quot;application/x-www-form-urlencoded;charset=UTF-8&quot;);                     // 向请求添加 HTTP 头，POST如果有数据一定加加！！！！</span><br><span class="line">xmlHttp.send(params);</span><br></pre></td></tr></table></figure>
 <h1 id="第八章-充实文档的内容"><a href="#第八章-充实文档的内容" class="headerlink" title="第八章 充实文档的内容"></a>第八章 充实文档的内容</h1><hr>
+<p>思路：</p>
+<ol>
+<li>获取元素集合；</li>
+<li>遍历集合，获取元素特定属性或子元素；</li>
+<li>将各类数据存储在数组里；</li>
+<li>创建标记；</li>
+<li>为标记增添上述获取内容；</li>
+<li>将标记添加到文档。</li>
+</ol>
+<p>主要充实内容：</p>
+<ul>
+<li>显示“缩略语列表”：<br><code>&lt;abbr&gt;</code>标签和定义列表（<code>&lt;dl&gt;</code>）由一系列“定义标题”（<code>&lt;dt&gt;</code>）和相应的“定义描述”（<code>&lt;dd&gt;</code>）构成。</li>
+<li>显示“文献来源链接表”：<br><code>&lt;blockquote cite=&quot;http://baidu.com&quot;&gt;</code>获取其中的cite属性。</li>
+<li>显示“快捷键清单”：<br>属性accesskey，不同值对应不同的快捷键。如：<code>&lt;a href=&quot;index.html&quot; accesskey=&quot;1&quot;&gt;Home&lt;/a&gt;</code>。</li>
+<li>检索和添加信息。</li>
+</ul>
 <h1 id="第九章-CSS-DOM"><a href="#第九章-CSS-DOM" class="headerlink" title="第九章 CSS-DOM"></a>第九章 CSS-DOM</h1><hr>
+<h2 id="9-2-style属性"><a href="#9-2-style属性" class="headerlink" title="9.2 style属性"></a>9.2 style属性</h2><ul>
+<li>当需要引用一个中间带减号的CSS属性时，DOM要求你用驼峰式命名法。如：CSS属性font-family变为DOM属性fontFamily。<code>element.style.fontFamily</code><br><strong>注意：</strong>通过style属性获取样式有很大的局限性。style属性只能返回内嵌样式。换句话说，只有把 CSS style属性插入到标记里，才可以用 DOM style属性去查询那些信息。</li>
+<li>style对象的属性值永远是一个字符串，它必须放在引号里，单引号或双引号均可。<code>para.style.color=&#39;black&#39;</code><br><strong>注意：</strong>如果忘记使用引号，JavaScript会把等号右边的值解释为一个变量。且如果前面未定义变量名，搞语句将无法工作。</li>
+</ul>
+<h2 id="9-3-何时该使用DOM脚本设置样式"><a href="#9-3-何时该使用DOM脚本设置样式" class="headerlink" title="9.3 何时该使用DOM脚本设置样式"></a>9.3 何时该使用DOM脚本设置样式</h2><ul>
+<li>为什么这么做：<br>其一，CSS无法让我们找到想要处理的目标元素；<br>其二，是用CSS寻找目标元素的办法还未得到广泛的支持。</li>
+<li>根据元素在节点树里的位置来设置样式。通过CSS声明样式的具体做法主要有三种。<ol>
+<li>标签元素。<code>p{font-size:1em;}</code></li>
+<li>为有特定class属性的所有元素统一声明样式。<code>.fineprint{font-size:1em;}</code></li>
+<li>为有独一无二的id属性的元素单独声明样式。<code>#intro{font-size:1em}</code></li>
+<li>也可以为有类似属性的多个元素声明样式。<code>input[type*=&quot;text&quot;]{font-size:1em}</code></li>
+<li>在现代浏览器中，甚至可以根据元素的为hi声明样式。<code>p:first-of-tye{font-size:1em}</code><br><strong>注：</strong>CSS2引入了很多与位置相关的选择器，如：:first-child 和 :last-child ，而CSS3则定义了诸如 :nth-child() 和 :nth-of-type() 之类的位置选择器。</li>
+</ol>
+</li>
+</ul>
 <h1 id="第十章-用JavaScript实现动画效果"><a href="#第十章-用JavaScript实现动画效果" class="headerlink" title="第十章 用JavaScript实现动画效果"></a>第十章 用JavaScript实现动画效果</h1><hr>
+<h2 id="10-1-动画基础知识"><a href="#10-1-动画基础知识" class="headerlink" title="10.1 动画基础知识"></a>10.1 动画基础知识</h2><ul>
+<li>setTimeout函数的第一个参数为字符串，记住！<code>movement=setTimeout(&quot;moveMessage(),10&quot;);</code></li>
+<li><strong>关于对var repeat = “moveElement(‘“+elementID+”‘,”+final_x+”,”+final_y+”,”+interval+”)”;的理解：（这里还是理解得不是很清楚）</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function moveElement(elementID,final_x,final_y,interval) &#123;</span><br><span class="line">  if (!document.getElementById) return false;</span><br><span class="line">  if (!document.getElementById(elementID)) return false;</span><br><span class="line">  var elem = document.getElementById(elementID);</span><br><span class="line">  var xpos = parseInt(elem.style.left);</span><br><span class="line">  var ypos = parseInt(elem.style.top);</span><br><span class="line">  if (xpos == final_x &amp;&amp; ypos == final_y) &#123;</span><br><span class="line">    return true;</span><br><span class="line">  &#125;</span><br><span class="line">  if (xpos &lt; final_x) &#123;</span><br><span class="line">    xpos++;</span><br><span class="line">  &#125;</span><br><span class="line">  if (xpos &gt; final_x) &#123;</span><br><span class="line">    xpos--;</span><br><span class="line">  &#125;</span><br><span class="line">  if (ypos &lt; final_y) &#123;</span><br><span class="line">    ypos++;</span><br><span class="line">  &#125;</span><br><span class="line">  if (ypos &gt; final_y) &#123;</span><br><span class="line">    ypos--;</span><br><span class="line">  &#125;</span><br><span class="line">  elem.style.left = xpos + &quot;px&quot;;</span><br><span class="line">  elem.style.top = ypos + &quot;px&quot;;</span><br><span class="line">  var repeat = &quot;moveElement(&apos;&quot;+elementID+&quot;&apos;,&quot;+final_x+&quot;,&quot;+final_y+&quot;,&quot;+interval+&quot;)&quot;;</span><br><span class="line">  movement = setTimeout(repeat,interval);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>计时器第一个参数尽量不要用字符串，而是匿名函数（需要传入参数）或者直接要执行的函数名称（对于不需要参数的），字符串是用eval执行的，存在xss漏洞并且效率低。</li>
+<li>setTimeout第一个参数如果是字符串，那么如果你传递的是变量，就是var repeat = “moveElement(elementID,final_x,final_y,interval)你这种形式，那么变量必须要是window作用域下的（虽然eval执行，但是需要变量是wiindow作用域下的，这个和eval有区别，是当前作用域内的变量可以访问到），访问不到此时传入的参数，会报错。</li>
+<li>“+value+”为传递变量如果没有++就是传递字符串了，两个加号之间的变量可以解析，由于elementID是字符串，必须要变为引号括起。</li>
+</ol>
+<blockquote>
+<p><strong>参考链接：</strong><a href="https://ask.csdn.net/questions/367104" target="_blank" rel="noopener">关于dom编程艺术动画部分一句代码的解释问题</a>，<a href="https://blog.csdn.net/qq_39148344/article/details/83350911" target="_blank" rel="noopener">https://blog.csdn.net/qq_39148344/article/details/83350911</a>，<a href="https://blog.csdn.net/ysc612/article/details/48766875" target="_blank" rel="noopener">https://blog.csdn.net/ysc612/article/details/48766875</a></p>
+</blockquote>
+<h2 id="10-2-实用的动画"><a href="#10-2-实用的动画" class="headerlink" title="10.2 实用的动画"></a>10.2 实用的动画</h2><ul>
+<li>为了消除动画的滞后现象，可以用 clearTimeout 函数清除积累在 setTimeout 队列里的事件。<code>clearTimeout(movement);</code></li>
+<li>为了进行判断是否执行 clearTimeout 函数，可将movement设置为元素的一个属性。</li>
+</ul>
 <h1 id="第十一章-HTML5"><a href="#第十一章-HTML5" class="headerlink" title="第十一章 HTML5"></a>第十一章 HTML5</h1><hr>
-<h1 id="第十二章-综合实例"><a href="#第十二章-综合实例" class="headerlink" title="第十二章 综合实例"></a>第十二章 综合实例</h1><hr>
+<blockquote>
+<p><strong>推荐工具：</strong><a href="https://modernizr.com/" target="_blank" rel="noopener">Modernizr</a><br><strong>注：</strong>该工具能提供一些不同的CSS类名以及特性检测属性。引用该脚本是，需要将其置于<code>&lt;head&gt;</code>标签中。</p>
+</blockquote>
+<h2 id="11-3-2-音频和视频"><a href="#11-3-2-音频和视频" class="headerlink" title="11.3.2 音频和视频"></a>11.3.2 音频和视频</h2><ul>
+<li>为了确保HTML5的最大兼容性，至少要包含一列三个版本：<ul>
+<li>基于H.264和ACC的MP4；</li>
+<li>WebM（VP8+Vorbis）；</li>
+<li>基于Theora视频和Vorbis音频的Ogg文件。</li>
+</ul>
+</li>
+</ul>
+<h2 id="11-4-HTML5其他特性"><a href="#11-4-HTML5其他特性" class="headerlink" title="11.4 HTML5其他特性"></a>11.4 HTML5其他特性</h2><h1 id="第十二章-综合实例"><a href="#第十二章-综合实例" class="headerlink" title="第十二章 综合实例"></a>第十二章 综合实例</h1><hr>
 <blockquote>
 <p><strong>文章作者：</strong><a href="https://loaln.github.io/" target="_blank" rel="noopener">Loaln</a><br><strong>文章链接：</strong><a href="https://loaln.github.io/2019/07/09/web-note-1/" target="_blank" rel="noopener">https://loaln.github.io/2019/07/09/web-note-1/</a><br><strong>版权声明：</strong>本文由Loaln原创,采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享（CC BY-NC-SA）4.0 国际许可协议</a><br>转载请保留原文链接及作者。</p>
 </blockquote>
@@ -423,7 +485,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第一章-JavaScript简史"><span class="toc-text">第一章 JavaScript简史</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第二章-JavaScript语法"><span class="toc-text">第二章 JavaScript语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-准备工作"><span class="toc-text">2.1 准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-算术操作符"><span class="toc-text">2.3 算术操作符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-条件语句"><span class="toc-text">2.4 条件语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-7-对象"><span class="toc-text">2.7 对象</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第三章-DOM"><span class="toc-text">第三章 DOM</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-节点"><span class="toc-text">3.4 节点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第四章-案例研究：JavaScript图片库"><span class="toc-text">第四章 案例研究：JavaScript图片库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-应用这个JavaScript函数"><span class="toc-text">4.3 应用这个JavaScript函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-对这个函数进行扩展"><span class="toc-text">4.4 对这个函数进行扩展</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第五章-最佳实践"><span class="toc-text">第五章 最佳实践</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-平稳退化"><span class="toc-text">5.2 平稳退化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-5-向后兼容"><span class="toc-text">5.5 向后兼容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-6-性能考虑"><span class="toc-text">5.6 性能考虑</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第六章-案例研究：图片库改进版"><span class="toc-text">第六章 案例研究：图片库改进版</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-2-共享onload事件-addLoadEvent"><span class="toc-text">6.3.2 共享onload事件(addLoadEvent)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第七章-动态创建标记"><span class="toc-text">第七章 动态创建标记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-DOM方法"><span class="toc-text">7.2 DOM方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-4-Ajax-自行查找补充"><span class="toc-text">7.4 Ajax(自行查找补充)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Ajax简介"><span class="toc-text">(1) Ajax简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Ajax所包含的技术"><span class="toc-text">(2) Ajax所包含的技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Ajax的工作原理"><span class="toc-text">(3) Ajax的工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-XMLHttpRequest对象的三个常用属性"><span class="toc-text">(4)XMLHttpRequest对象的三个常用属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-xmlhttprequst的方法"><span class="toc-text">(5)xmlhttprequst的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Ajax编程步骤"><span class="toc-text">(6)Ajax编程步骤</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第八章-充实文档的内容"><span class="toc-text">第八章 充实文档的内容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第九章-CSS-DOM"><span class="toc-text">第九章 CSS-DOM</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第十章-用JavaScript实现动画效果"><span class="toc-text">第十章 用JavaScript实现动画效果</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第十一章-HTML5"><span class="toc-text">第十一章 HTML5</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第十二章-综合实例"><span class="toc-text">第十二章 综合实例</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第一章-JavaScript简史"><span class="toc-text">第一章 JavaScript简史</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第二章-JavaScript语法"><span class="toc-text">第二章 JavaScript语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-准备工作"><span class="toc-text">2.1 准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-算术操作符"><span class="toc-text">2.3 算术操作符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-条件语句"><span class="toc-text">2.4 条件语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-7-对象"><span class="toc-text">2.7 对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#for-in循环-8-4-2创建标记中提及"><span class="toc-text">for/in循环(8.4.2创建标记中提及)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第三章-DOM"><span class="toc-text">第三章 DOM</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-节点"><span class="toc-text">3.4 节点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第四章-案例研究：JavaScript图片库"><span class="toc-text">第四章 案例研究：JavaScript图片库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-应用这个JavaScript函数"><span class="toc-text">4.3 应用这个JavaScript函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-对这个函数进行扩展"><span class="toc-text">4.4 对这个函数进行扩展</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第五章-最佳实践"><span class="toc-text">第五章 最佳实践</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-平稳退化"><span class="toc-text">5.2 平稳退化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-5-向后兼容"><span class="toc-text">5.5 向后兼容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-6-性能考虑"><span class="toc-text">5.6 性能考虑</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第六章-案例研究：图片库改进版"><span class="toc-text">第六章 案例研究：图片库改进版</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-2-共享onload事件-addLoadEvent"><span class="toc-text">6.3.2 共享onload事件(addLoadEvent)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第七章-动态创建标记"><span class="toc-text">第七章 动态创建标记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-DOM方法"><span class="toc-text">7.2 DOM方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-4-Ajax-自行查找补充"><span class="toc-text">7.4 Ajax(自行查找补充)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Ajax简介"><span class="toc-text">(1) Ajax简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Ajax所包含的技术"><span class="toc-text">(2) Ajax所包含的技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Ajax的工作原理"><span class="toc-text">(3) Ajax的工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-XMLHttpRequest对象的三个常用属性"><span class="toc-text">(4)XMLHttpRequest对象的三个常用属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-xmlhttprequst的方法"><span class="toc-text">(5)xmlhttprequst的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Ajax编程步骤"><span class="toc-text">(6)Ajax编程步骤</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第八章-充实文档的内容"><span class="toc-text">第八章 充实文档的内容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第九章-CSS-DOM"><span class="toc-text">第九章 CSS-DOM</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#9-2-style属性"><span class="toc-text">9.2 style属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-3-何时该使用DOM脚本设置样式"><span class="toc-text">9.3 何时该使用DOM脚本设置样式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第十章-用JavaScript实现动画效果"><span class="toc-text">第十章 用JavaScript实现动画效果</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#10-1-动画基础知识"><span class="toc-text">10.1 动画基础知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-2-实用的动画"><span class="toc-text">10.2 实用的动画</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第十一章-HTML5"><span class="toc-text">第十一章 HTML5</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#11-3-2-音频和视频"><span class="toc-text">11.3.2 音频和视频</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-4-HTML5其他特性"><span class="toc-text">11.4 HTML5其他特性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第十二章-综合实例"><span class="toc-text">第十二章 综合实例</span></a></li></ol>
                 </div>
             </div>
         </div>
@@ -445,9 +507,9 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
-                        
                         <a class="tag" href="/tags/#前端" title="前端">前端</a>
+                        
+                        <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
                         
                         <a class="tag" href="/tags/#笔记" title="笔记">笔记</a>
                         
