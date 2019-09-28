@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        Hello World｜Loaln&#39;s blog
+        关于牛客网“专项知识点练习”之HTML/CSS笔记｜Loaln&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="http://haojen.github.io/2019/03/06/hello-world/">
+    <link rel="canonical" href="http://haojen.github.io/2019/09/20/web-note-3-HtmlCss/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -152,15 +152,19 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>Hello World</h1>
+                    <h1>关于牛客网“专项知识点练习”之HTML/CSS笔记</h1>
                     
                     <span class="meta">
                          作者 Loaln
                         <span>
-                          日期 2019-03-06
+                          日期 2019-09-20
                          </span>
                     </span>
                     <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#前端" title="前端">前端</a>
+                        
+                        <a class="tag" href="/tags/#HTML/CSS" title="HTML/CSS">HTML/CSS</a>
                         
                     </div>
                 </div>
@@ -169,7 +173,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            Hello World
+            关于牛客网“专项知识点练习”之HTML/CSS笔记
         </span>
     </div>
 </header>
@@ -180,25 +184,60 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><hr>
+<p>2019.9.20更新<br>言简意赅，查漏补缺。</p>
+<blockquote>
+<p><strong>链接：</strong><a href="https://www.nowcoder.com/intelligentTest" target="_blank" rel="noopener">https://www.nowcoder.com/intelligentTest</a><br><strong>来源：</strong>牛客网（牛客网 &gt; 题库 &gt; 专项练习）</p>
+</blockquote>
+<h1 id="CSS-盒子模型：IE-amp-标准"><a href="#CSS-盒子模型：IE-amp-标准" class="headerlink" title="CSS-盒子模型：IE&amp;标准"></a>CSS-盒子模型：IE&amp;标准</h1><hr>
+<p>IE盒模型主要用在IE5.5及更早的版本，现在普遍浏览器主要使用标准盒模型。<br>下面展示两张图以展示区别：<br><strong>两者的区别主要在于content的不同：</strong></p>
+<ul>
+<li>IE盒子宽度 = margin + width , width = border + padding + content ;</li>
+<li>标准盒子宽度 = margin + border + padding + width , width = content ;<br><img src="http://py4e2su3k.bkt.clouddn.com/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B-IE.png" alt="IE盒模型"><br><img src="http://py4e2su3k.bkt.clouddn.com/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B-%E6%A0%87%E5%87%86.jpg" alt="标准盒模型"><br><strong>这里我们来关注CSS3的一个属性：box-sizing，该属性与上述两种盒子模型息息相关。</strong><br>根据W3school的定义：box-sizing 属性允许您以特定的方式定义匹配某个区域的特定元素。<br>语法：<code>box-sizing: content-box|border-box|inherit;</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">值</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">content-box</td>
+<td style="text-align:left">这是由 CSS2.1 规定的宽度高度行为。<br>宽度和高度分别应用到元素的内容框。<br>在宽度和高度之外绘制元素的内边距和边框。</td>
+</tr>
+<tr>
+<td style="text-align:left">border-box</td>
+<td style="text-align:left">为元素设定的宽度和高度决定了元素的边框盒。<br>就是说，为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。<br>通过从已设定的宽度和高度分别减去边框和内边距才能得到内容的宽度和高度。</td>
+</tr>
+<tr>
+<td style="text-align:left">inherit</td>
+<td style="text-align:left">规定应从父元素继承 box-sizing 属性的值。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>即：</strong></p>
+<ul>
+<li>当使用content-box时：页面将采用标准模式来解析计算，content-box也是默认模式。</li>
+<li>当使用border-box时，页面将采用怪异模式解析计算，怪异模式也称为IE模式。</li>
+<li>当使用inherit时：页面将从父元素继承box-sizing的值。</li>
+</ul>
+<p><strong>例子：</strong>注意查看盒子宽度的变化。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;style&gt;</span><br><span class="line">			.container &#123;width: 30em;border: 1em solid;&#125;</span><br><span class="line">			.box &#123;box-sizing: border-box;width: 50%;</span><br><span class="line">                            border: 1em solid red;padding: 1em;float: left;&#125;</span><br><span class="line">		&lt;/style&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line">	&lt;body&gt;</span><br><span class="line">		&lt;div class=&quot;container&quot;&gt;</span><br><span class="line">			&lt;div class=&quot;box&quot;&gt;1&lt;/div&gt;</span><br><span class="line">			&lt;div class=&quot;box&quot;&gt;2&lt;/div&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://py4e2su3k.bkt.clouddn.com/border-box.png" alt="border-box"><br><img src="http://py4e2su3k.bkt.clouddn.com/content-box.png" alt="content-box"></p>
+<blockquote>
+<p><strong>参考链接：</strong><a href="https://www.jianshu.com/p/cc2bc404269b" target="_blank" rel="noopener">https://www.jianshu.com/p/cc2bc404269b</a></p>
+</blockquote>
+<h1 id="CSS-清除浮动的方法"><a href="#CSS-清除浮动的方法" class="headerlink" title="CSS-清除浮动的方法"></a>CSS-清除浮动的方法</h1>
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2019/03/07/myFirstBlog/" data-toggle="tooltip" data-placement="top" title="我的第一条博客">&larr; Previous Post</a>
-                    </li>
                     
+                    <li class="next">
+                        <a href="/2019/07/23/web-note-2-array/" data-toggle="tooltip" data-placement="top" title="关于牛客网“JS能力测评”之数组部分答案整理">Next Post &rarr;</a>
+                    </li>
                     
                 </ul>
 
@@ -216,7 +255,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS-盒子模型：IE-amp-标准"><span class="toc-text">CSS-盒子模型：IE&amp;标准</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS-清除浮动的方法"><span class="toc-text">CSS-清除浮动的方法</span></a></li></ol>
                 </div>
             </div>
         </div>
@@ -237,6 +276,10 @@
                         <a href="/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
+                        
+                        <a class="tag" href="/tags/#前端" title="前端">前端</a>
+                        
+                        <a class="tag" href="/tags/#HTML/CSS" title="HTML/CSS">HTML/CSS</a>
                         
                     </div>
                 </section>
